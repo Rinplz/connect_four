@@ -1,4 +1,4 @@
-require './lib/build_board'
+require './lib/board'
 require './lib/game'
 
 RSpec.describe 'Game' do
@@ -13,9 +13,9 @@ RSpec.describe 'Game' do
 
     expect(game.input).to eq("")
 
-    game.start_input("p")
+    game.start()
 
-    expect(game.input).to eq("p")
+    expect(game.input).not_to eq("")
   end
 
 end

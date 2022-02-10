@@ -1,4 +1,4 @@
-require './lib/build_board'
+require './lib/board'
 
 RSpec.describe Board do
   it 'can create an empty board' do
