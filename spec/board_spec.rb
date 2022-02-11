@@ -11,7 +11,7 @@ RSpec.describe Board do
     board = Board.new
     board.build_board
 
-    board.add_piece(:player, "a")
+    board.add_piece(:human, 1)
 
     expect(board.board).to eq(["ABCDEFG", ".......", ".......", ".......", ".......", ".......", "X......"])
   end
