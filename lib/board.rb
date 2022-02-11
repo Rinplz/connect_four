@@ -21,7 +21,11 @@ attr_reader :board, :column_count
     else
       piece = "O"
     end
-
+    column = column - 1
+    row = column_count[column]
+    arr_to_change = @board[row].split("")
+    arr_to_change[column] = piece
+    @board[row] = arr_to_change.join("")
     return board
   end
 end
