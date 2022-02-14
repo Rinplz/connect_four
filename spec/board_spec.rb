@@ -42,5 +42,17 @@ RSpec.describe Board do
     expect(board.is_draw?).to eq(true)
   end
 
+  it 'can handle computer turn' do
+    board = Board.new
+    board.build_board
+
+    board.add_piece(:human, 1)
+    expect(board.board).to eq(['ABCDEFG', '.......', '.......', '.......', '.......', '.......', 'X......'])
+    board.comp_turn
+    expect(board.board).not_to eq(['ABCDEFG', '.......', '.......', '.......', '.......', '.......', 'X......'])
+    # This doesn't test if the board is full, because that state should never call comp_turn.
+  end
+
+
 
 end

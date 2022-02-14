@@ -43,6 +43,19 @@ attr_reader :board, :column_count, :invalid_columns
     return board
   end
 
+  def comp_turn
+    open_columns = []
+    index = 1
+    @column_count.each do |column|
+      if column != 0
+        open_columns << index
+      end
+      index += 1
+    end
+
+    self.add_piece(:computer, open_columns.sample)
+  end
+
   def is_draw?
     return @invalid_columns.length == 7
   end
