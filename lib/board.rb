@@ -60,7 +60,7 @@ attr_reader :board, :column_count, :invalid_columns, :game_result,:column_played
   end
 
   self.add_piece(:computer, open_columns.sample)
-end
+  end
 
   def end_of_game
 
