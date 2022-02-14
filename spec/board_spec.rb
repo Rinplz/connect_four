@@ -16,5 +16,17 @@ RSpec.describe Board do
     expect(board.board).to eq(["ABCDEFG", ".......", ".......", ".......", ".......", ".......", "X......"])
   end
 
+  it 'can detect if a column is invalid' do
+    board = Board.new
+    board.build_board
+
+    6.times do
+      board.add_piece(:human, 1)
+    end
+
+    expect(board.invalid_columns).to eq([0])
+    expect(board.add_piece(:human, 1)).to eq("Please input a valid column")
+  end
+
 
 end
