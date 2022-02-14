@@ -16,7 +16,7 @@ attr_reader :board, :column_count, :invalid_columns, :game_result,:column_played
   end
 
   def reset_columns
-    @column_count = [0, 0, 0, 0, 0, 0, 0]
+    @column_count = [6, 6, 6, 6, 6, 6, 6]
   end
 
   def add_piece(player, column)
@@ -60,10 +60,6 @@ attr_reader :board, :column_count, :invalid_columns, :game_result,:column_played
   end
 
   self.add_piece(:computer, open_columns.sample)
-end
-
-def is_draw?
-  return @invalid_columns.length == 7
 end
 
   def end_of_game
@@ -150,5 +146,4 @@ end
     return @game_result
     end
   end
-
 end
