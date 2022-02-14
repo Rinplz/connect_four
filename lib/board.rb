@@ -12,7 +12,7 @@ attr_reader :board, :column_count, :invalid_columns
   end
 
   def reset_columns
-    @column_count = [0, 0, 0, 0, 0, 0, 0]
+    @column_count = [6, 6, 6, 6, 6, 6, 6]
   end
 
   def add_piece(player, column)
@@ -41,6 +41,19 @@ attr_reader :board, :column_count, :invalid_columns
     end
 
     return board
+  end
+
+  def comp_turn
+    open_columns = []
+    index = 1
+    @column_count.each do |column|
+      if column != 0
+        open_columns << index
+      end
+      index += 1
+    end
+
+    self.add_piece(:computer, open_columns.sample)
   end
 
   def is_draw?
