@@ -49,8 +49,23 @@ RSpec.describe Board do
     board.add_piece(:human, 1)
     expect(board.board).to eq(['ABCDEFG', '.......', '.......', '.......', '.......', '.......', 'X......'])
     board.comp_turn
+    # If the computer turn went correctly, the board should have changed from it's state after the human turn.  We don't care which column it took.
     expect(board.board).not_to eq(['ABCDEFG', '.......', '.......', '.......', '.......', '.......', 'X......'])
     # This doesn't test if the board is full, because that state should never call comp_turn.
+  end
+
+  it 'will not place a computer turn in an invalid column' do
+    board = Board.new
+    board.build_board
+    6.times do |index|
+      6.times do 
+        board.add_piece(:human, index + 1)
+      end
+    end
+
+    expect(board.board).to eq(['ABCDEFG', 'XXXXXX.', 'XXXXXX.', 'XXXXXX.', 'XXXXXX.', 'XXXXXX.', 'XXXXXX.'])
+    board.comp_turn
+    expect(board.board).to eq(['ABCDEFG', 'XXXXXX.', 'XXXXXX.', 'XXXXXX.', 'XXXXXX.', 'XXXXXX.', 'XXXXXXO'])
   end
 
 
