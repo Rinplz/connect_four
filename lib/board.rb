@@ -12,7 +12,7 @@ attr_reader :board, :column_count, :invalid_columns
   end
 
   def reset_columns
-    @column_count = [0, 0, 0, 0, 0, 0, 0]
+    @column_count = [6, 6, 6, 6, 6, 6, 6]
   end
 
   def add_piece(player, column)
