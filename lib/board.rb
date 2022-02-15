@@ -7,8 +7,8 @@ attr_reader :board, :column_count, :invalid_columns, :game_result, :column_playe
     @column_count = [6, 6, 6, 6, 6, 6, 6]
     @invalid_columns = []
     @game_result = ""
-    @column_played
-    @row_edited
+    @column_played = 0
+    @row_edited = 6
   end
 
   def build_board

@@ -21,6 +21,7 @@ class Game
       @board = Board.new()
       @playing_game = true
       board.build_board
+      @current_player = :human
       self.play_game
     else 
       return "Goodbye, player!"
@@ -32,7 +33,7 @@ class Game
       if current_player == :human
         p "Your turn."
         input = gets.chomp
-        if columns.includes(input.downcase)
+        if columns.keys.include? input.downcase
           board.add_piece(current_player, columns[input.downcase])
           board.display_board
           @current_player = :computer
