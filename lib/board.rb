@@ -1,18 +1,24 @@
 
 class Board
 
-attr_reader :board, :column_count, :invalid_columns, :game_result,:column_played
+attr_reader :board, :column_count, :invalid_columns, :game_result, :column_played
   def initialize
     @board = []
     @column_count = [6, 6, 6, 6, 6, 6, 6]
     @invalid_columns = []
     @game_result = ""
-    @column_played
-    @row_edited
+    @column_played = 0
+    @row_edited = 6
   end
 
   def build_board
     @board = ["ABCDEFG", ".......", ".......", ".......", ".......", ".......", "......."]
+  end
+
+  def display_board
+    board.each do |row|
+      p row
+    end
   end
 
   def reset_columns
