@@ -32,9 +32,13 @@ class Game
       if current_player == :human
         p "Your turn."
         input = gets.chomp
-        board.add_piece(current_player, columns[input.downcase])
-        board.display_board
-        @current_player = :computer
+        if columns.includes(input.downcase)
+          board.add_piece(current_player, columns[input.downcase])
+          board.display_board
+          @current_player = :computer
+        else
+          p "Please enter a column from a to g."
+        end
       else
         p "Computer turn."
         board.comp_turn
