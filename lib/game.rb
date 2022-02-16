@@ -23,7 +23,7 @@ class Game
       board.build_board
       @current_player = :human
       self.play_game
-    else 
+    else
       return "Goodbye, player!"
     end
   end
@@ -31,7 +31,7 @@ class Game
   def play_game
     while board.game_result == ""
       if current_player == :human
-        p "Your turn."
+        p "Your turn. Please enter a column from a to g."
         input = gets.chomp
         if columns.keys.include? input.downcase
           board.add_piece(current_player, columns[input.downcase])
@@ -48,7 +48,7 @@ class Game
       end
       board.is_draw?
       board.end_of_game
-      
+
     end
     p board.game_result
     @input = ""
